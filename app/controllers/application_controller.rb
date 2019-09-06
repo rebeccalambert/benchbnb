@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_logged_in!
-    if @current_user.nil?
+    if !logged_in?
       render json: ['User not logged in'], status: 401
     end
   end

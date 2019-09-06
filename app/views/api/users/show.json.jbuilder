@@ -1,5 +1,4 @@
-json.user do 
-  json.set! @user.id do
-    json.extract! @user
-  end
-end
+# json.set! @user.id do
+# end
+
+json.partial! 'api/users/user', user: @user

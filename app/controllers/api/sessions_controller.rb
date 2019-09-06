@@ -7,16 +7,15 @@ class Api::SessionsController < ApplicationController
       )
     if @user
       login(@user)
-      debugger
-      render "/api/users/show.json.jbuilder"   
+      render "api/users/show"   
     else
       render json: ['Invalid credentials'], status: 422
     end
   end
 
   def destroy
-    logout
     if logged_in?
+      logout
       render json: {}
     else
       render json: ["No user to log out"], status: 404
